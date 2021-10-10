@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+  font-size: 10pt;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --blue: #1e90ff;
+  --themeColor: var(--blue);
+}
+
+#int {
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+#controls {
+  background-color: var(--themeColor);
+  left: 10%;
+  position: relative;
+  width: 80%;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#clearButton {
+  width: 25px;
+  background-color: white;
+  border: 2px solid white;
+  color: white;
+  height: 25px;
+  background-image: url(Icons/replay_circle_filled_black_24dp.svg)
+}
+
+select {
+  width: 150px;
+  height: 20px;
+  background-color: var(--themeColor);
+  border: 1px solid white;
+  color: white;
+}
+
+input {
+  width: 100px;
+}
+
+#lineColor {
+  position: relative;
+  left: 56px;
+}
+
+input[type=color] {
+  background-color: var(--themeColor);
+  border: 1px solid white;
+  width:50px;
+}
+
+#pointer {
+  width: 15px;
+  height: 15px;
+  background-color: #E117178F;
+  position: absolute;
+  border-radius: 10px;
+  border: 1px solid red;
+  color: #F20B0B;
+  display: none;
+}
+
+#info {
+  background-image: url(Icons/info_black_24dp.svg);
+  left: 0;
+}
+
+#infoOpen {
+  width: 250px;
+  height: 100px;
+  background-color: var(--themeColor);
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 30px;
+  display: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px black;
+  font-size: 15px;
+  font-family: 'Montserrat', sans-serif;
+
+
+}
+
+.infoHeading {
+  font-size: 20px;
+  color: yellow;
+}
+
+#recentColors {
+
+  background-image: url(Icons/history_black_24dp.svg);
+  left: 50px;
+}
+
+#recentColors,
+#info {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+  position: absolute;
+  top: 0;
+}
+#recentColorsOpen{
+  width: 250px;
+  height: 100px;
+  background-color: var(--themeColor);
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 30px;
+  display: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px black;
+  font-size: 15px;
+  font-family: 'Montserrat',sans-serif;
+}
+.inputColorHex{
+  width:75px;
+  height: 20px;
+  background-color: white;
+  color: var(--themeColor);
+  border:none;
+  position: relative;
+  top:-5px;
+  border-radius: 5px;
+}
+.inputColorHex::placeholder{
+  color:var(--themeColor);
+}
+#inputLineColorHex{
+  left:56px;
+}
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

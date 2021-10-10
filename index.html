@@ -8,118 +8,48 @@
   <title>HTML</title>
   <!-- HTML -->
   <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <canvas id="int"></canvas>
-  <br><br>
-  <div id="controls">
-    <div id="clearButton"></div>
-    Line Colour: <input id="lineColor" type="color" value="#FDFDFD" > <br>
-    Background Colour: <input id="canvasColor" type="color"><br>
-    <select id="strokeWidth">
-      <option value="4">LineWidth</option>
-      <option value="3">3px</option>
-      <option value="4">4px</option>
-      <option value="5">5px</option>
-      <option value="6">6px</option>
-      <option value="7">7px</option>
-      <option value="8">8px</option>
-    </select><br>
-    Cursor Offset: <input type="range" id="cursorOffset" max="200" min="0" value="0" />
+  <div id="visible">
+    <br><br>
+    <div id="pointer">+</div>
+    <canvas id="int"></canvas>
+    <br>
+    <div id="controls">
+      <div id="clearButton"></div>
+      Line Colour: <input id="lineColor" type="color" value="#FDFDFD"><input placeholder=" Enter Hex" class="inputColorHex" id="inputLineColorHex" /> <br>
+      Background Colour: <input id="canvasColor" type="color"><input placeholder=" Enter Hex" class="inputColorHex" /><br>
+      <select id="strokeWidth">
+        <option value="4">LineWidth</option>
+        <option value="3">3px</option>
+        <option value="4">4px</option>
+        <option value="5">5px</option>
+        <option value="6">6px</option>
+        <option value="7">7px</option>
+        <option value="8">8px</option>
+      </select><br>
+      Cursor Offset: <input type="range" id="cursorOffset" max="200" min="0" value="0" />
+    </div>
+  </div>
+  <div id="invisible">
+    <div id="info"></div>
+    <div id="infoOpen">
+      <span class="infoHeading"> Radius Drawing </span><br>
+      Use this to create illustrations.<br>
+      <span class="infoHeading">New : Pressure Control</span><br>
+      Use your pressure to control the drawing. use less pressure to move the cursor and apply more pressure to draw!
+    </div>
+    <!-- Recent Colors -->
+    <div id="recentColors"></div>
+    <div id="recentColorsOpen">
+      Recently Use Colours:
+      <p id="recentColorsP"></p>
+    </div>
   </div>
   <!-- Project -->
-<style>
-body {
-  font-size: 10pt;
-  margin: 0;
-  padding: 0;
-  color: white;
-}
-
-:root {
-  --blue: #1e90ff;
-  --themeColor: var(--blue);
-}
-
-#int {
-  background-color: black;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin: 5px;
-}
-
-#controls {
-  background-color: var(--themeColor);
-  left: 10%;
-  position: relative;
-  width: 80%;
-  padding: 5px;
-  border-radius: 5px;
-}
-
-#clearButton {
-  width: 25px;
-  background-color: white;
-  border: 2px solid white;
-  color: white;
-  height: 25px;
-  background-image: url(Icons/replay_circle_filled_black_24dp.svg)
-}
-
-select {
-  width: 150px;
-  height: 20px;
-  background-color: var(--themeColor);
-  border: 1px solid white;
-  color: white;
-}
-
-input {
-  width: 100px;
-}
-
-#lineColor {
-  position: relative;
-  left: 56px;
-}
-
-input[type=color] {
-  background-color: var(--themeColor);
-  border: 1px solid white;
-
-}
-</style>
-  <script >
-const canvas = document.querySelector("canvas")
-var ctx = canvas.getContext('2d')
-var offset = 0
-canvas.height = window.innerHeight - 200
-canvas.width = window.innerWidth - 12
-ctx.lineWidth = "4"
-ctx.strokeStyle = "white"
-document.getElementById("int").addEventListener("touchmove", (e) => {
-  ctx.beginPath()
-  ctx.moveTo(canvas.width / 2, canvas.height / 2)
-  ctx.lineTo(e.touches[0].clientX, e.touches[0].clientY - offset)
-  ctx.stroke()
-})
-document.getElementById("clearButton").addEventListener("click", () => {
-  ctx.clearRect(0, 0, canvas.width, canvas.height)
-})
-document.getElementById("lineColor").addEventListener("input", function() {
-  ctx.strokeStyle = this.value
-})
-document.getElementById("canvasColor").addEventListener("input", function() {
-  canvas.style.backgroundColor = this.value
-})
-document.getElementById("strokeWidth").addEventListener("input",function(){
-  ctx.lineWidth = this.value
-})
-document.getElementById("cursorOffset").addEventListener("change",function(){
-  offset = parseInt(this.value)
-})
-</script>
+  <script src="main.js"></script>
 </body>
 
 </html>
